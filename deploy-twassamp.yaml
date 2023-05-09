@@ -1,0 +1,16 @@
+apiVersion: app.stacks/v1beta1
+kind: RuntimeComponent
+metadata:
+  name: twas-sample-app
+  namespace: twas-sample-app
+spec:
+  replicas: 1
+  applicationImage: docker-na-public.artifactory.swg-devops.com/hyc-wassvt-team-image-registry-docker-local/svtapps/twas-sample-app
+  service:
+    type: ClusterIP
+    port: 9080
+  expose: true
+  storage:
+    size: 2Gi
+    mountPath: "/logs"
+  pullPolicy: Always
